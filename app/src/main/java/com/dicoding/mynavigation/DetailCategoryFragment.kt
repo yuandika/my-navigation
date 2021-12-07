@@ -29,11 +29,15 @@ class DetailCategoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val dataName = arguments?.getString(CategoryFragment.EXTRA_NAME)
+
+        val dataName = DetailCategoryFragmentArgs.fromBundle(arguments as Bundle).name
+        val dataDescription = DetailCategoryFragmentArgs.fromBundle(arguments as Bundle).stock
+        /*val dataName = arguments?.getString(CategoryFragment.EXTRA_NAME)
         val dataDescription = arguments?.getLong(CategoryFragment.EXTRA_STOCK)
+         */
 
         binding.tvCategoryName.text = dataName
-        binding.tvCategoryDescription.text = "Stock $dataDescription"
+        binding.tvCategoryDescription.text = "Stock = $dataDescription"
     }
 
     override fun onDestroy() {
